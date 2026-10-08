@@ -1,0 +1,136 @@
+import '../../domain/entities/image_entity.dart';
+
+class ImageModel extends ImageEntity {
+  const ImageModel({
+    required super.id,
+    required super.pageUrl,
+    required super.tags,
+    required super.previewUrl,
+    required super.previewWidth,
+    required super.previewHeight,
+    required super.webformatUrl,
+    required super.webformatWidth,
+    required super.webformatHeight,
+    required super.largeImageUrl,
+    required super.imageWidth,
+    required super.imageHeight,
+    required super.imageSize,
+    required super.views,
+    required super.downloads,
+    required super.collections,
+    required super.likes,
+    required super.comments,
+    required super.userId,
+    required super.user,
+    required super.userImageUrl,
+    super.isFavorite,
+  });
+
+  factory ImageModel.fromJson(Map<String, dynamic> json) {
+    return ImageModel(
+      id: json['id'] as int? ?? 0,
+      pageUrl: json['pageURL'] as String? ?? '',
+      tags: json['tags'] as String? ?? '',
+      previewUrl: json['previewURL'] as String? ?? '',
+      previewWidth: json['previewWidth'] as int? ?? 150,
+      previewHeight: json['previewHeight'] as int? ?? 150,
+      webformatUrl: json['webformatURL'] as String? ?? '',
+      webformatWidth: json['webformatWidth'] as int? ?? 640,
+      webformatHeight: json['webformatHeight'] as int? ?? 480,
+      largeImageUrl: json['largeImageURL'] as String? ?? '',
+      imageWidth: json['imageWidth'] as int? ?? 1920,
+      imageHeight: json['imageHeight'] as int? ?? 1080,
+      imageSize: json['imageSize'] as int? ?? 0,
+      views: json['views'] as int? ?? 0,
+      downloads: json['downloads'] as int? ?? 0,
+      collections: json['collections'] as int? ?? 0,
+      likes: json['likes'] as int? ?? 0,
+      comments: json['comments'] as int? ?? 0,
+      userId: json['user_id'] as int? ?? 0,
+      user: json['user'] as String? ?? 'Anonymous',
+      userImageUrl: json['userImageURL'] as String? ?? '',
+      isFavorite: json['isFavorite'] as bool? ?? false,
+    );
+  }
+
+  Map<String, dynamic> toJson() {
+    return {
+      'id': id,
+      'pageURL': pageUrl,
+      'tags': tags,
+      'previewURL': previewUrl,
+      'previewWidth': previewWidth,
+      'previewHeight': previewHeight,
+      'webformatURL': webformatUrl,
+      'webformatWidth': webformatWidth,
+      'webformatHeight': webformatHeight,
+      'largeImageURL': largeImageUrl,
+      'imageWidth': imageWidth,
+      'imageHeight': imageHeight,
+      'imageSize': imageSize,
+      'views': views,
+      'downloads': downloads,
+      'collections': collections,
+      'likes': likes,
+      'comments': comments,
+      'user_id': userId,
+      'user': user,
+      'userImageURL': userImageUrl,
+      'isFavorite': isFavorite,
+    };
+  }
+
+  factory ImageModel.fromEntity(ImageEntity entity) {
+    return ImageModel(
+      id: entity.id,
+      pageUrl: entity.pageUrl,
+      tags: entity.tags,
+      previewUrl: entity.previewUrl,
+      previewWidth: entity.previewWidth,
+      previewHeight: entity.previewHeight,
+      webformatUrl: entity.webformatUrl,
+      webformatWidth: entity.webformatWidth,
+      webformatHeight: entity.webformatHeight,
+      largeImageUrl: entity.largeImageUrl,
+      imageWidth: entity.imageWidth,
+      imageHeight: entity.imageHeight,
+      imageSize: entity.imageSize,
+      views: entity.views,
+      downloads: entity.downloads,
+      collections: entity.collections,
+      likes: entity.likes,
+      comments: entity.comments,
+      userId: entity.userId,
+      user: entity.user,
+      userImageUrl: entity.userImageUrl,
+      isFavorite: entity.isFavorite,
+    );
+  }
+
+  ImageModel copyWithModel({bool? isFavorite}) {
+    return ImageModel(
+      id: id,
+      pageUrl: pageUrl,
+      tags: tags,
+      previewUrl: previewUrl,
+      previewWidth: previewWidth,
+      previewHeight: previewHeight,
+      webformatUrl: webformatUrl,
+      webformatWidth: webformatWidth,
+      webformatHeight: webformatHeight,
+      largeImageUrl: largeImageUrl,
+      imageWidth: imageWidth,
+      imageHeight: imageHeight,
+      imageSize: imageSize,
+      views: views,
+      downloads: downloads,
+      collections: collections,
+      likes: likes,
+      comments: comments,
+      userId: userId,
+      user: user,
+      userImageUrl: userImageUrl,
+      isFavorite: isFavorite ?? this.isFavorite,
+    );
+  }
+}
